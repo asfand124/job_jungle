@@ -12,16 +12,18 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-   TextEditingController _userNameController = TextEditingController();
+  bool _value = true;
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
 
-  TextEditingController _usertypeController = TextEditingController();
+  TextEditingController _referalCodeController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _conformPassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body: SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -57,9 +59,9 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                 
+
                   Text(
-                    ' Username',
+                    ' First Name',
                     style: TextStyle(
                       fontSize: 14,
                       color: Color(0xff000000),
@@ -70,8 +72,8 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                   TextInputField(
-                    _userNameController,
-                    "Username",
+                    _firstNameController,
+                    "First Name",
                     TextInputType.emailAddress,
                     (value) {
                       if (value!.isEmpty) {
@@ -82,7 +84,32 @@ class _SignUpState extends State<SignUp> {
                     },
                     Icons.person_outline,
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  Text(
+                    ' Last Name',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xff000000),
+                      fontFamily: GoogleFonts.inter().fontFamily,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+
+                  TextInputField(
+                    _firstNameController,
+                    "Last Name",
+                    TextInputType.emailAddress,
+                    (value) {
+                      if (value!.isEmpty) {
+                        return "Username field cannot be empty";
+                      } else {
+                        return null;
+                      }
+                    },
+                    Icons.person_outline,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
 
                   Text(
                     ' Email',
@@ -112,8 +139,6 @@ class _SignUpState extends State<SignUp> {
                     },
                     Icons.email_outlined,
                   ),
-                  
-                 
 
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Text(
@@ -144,50 +169,105 @@ class _SignUpState extends State<SignUp> {
                     Icons.lock,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                 
-                  // Row(
-                  //   children: [
-                  //     InkWell(
-                  //       onTap: () {
-                  //         setState(() {
-                  //           _value = !_value;
-                  //         });
-                  //       },
-                  //       child: Container(
-                  //         height: 20,
-                  //         width: 20,
-                  //         decoration: BoxDecoration(
-                  //             shape: BoxShape.circle, color: Color(0xff000000)),
-                  //         child: Padding(
-                  //           padding: EdgeInsets.all(2.0),
-                  //           child: _value
-                  //               ? Icon(
-                  //                   Icons.check_box_outline_blank,
-                  //                   size: 13.0,
-                  //                   color: Color(0xff00000),
-                  //                 )
-                  //               : Icon(
-                  //                   Icons.check,
-                  //                   size: 13.0,
-                  //                   color: Colors.white,
-                  //                 ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     SizedBox(
-                  //       width: MediaQuery.of(context).size.width * 0.03,
-                  //     ),
-                  //     Text(
-                  //       'I accept the terms and privacy policy',
-                  //       style: TextStyle(
-                  //         fontSize: 13,
-                  //         color: Color(0xff000000),
-                  //         fontFamily: GoogleFonts.inter().fontFamily,
-                  //         fontWeight: FontWeight.w500,
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+                  Text(
+                    ' Confirm Password',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xff000000),
+                      fontFamily: GoogleFonts.inter().fontFamily,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+
+                  TextInputField(
+                    _conformPassController,
+                    "Confirm your Password",
+                    TextInputType.text,
+                    (value) {
+                      RegExp regex = RegExp(r'^.{6,}$');
+                      if (value!.isEmpty) {
+                        return "Password cannot be empty";
+                      }
+                      if (!regex.hasMatch(value)) {
+                        return "Please enter a valid password (min. 6 characters)";
+                      }
+                      return null;
+                    },
+                    Icons.lock,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+                  Text(
+                    ' Referal Code',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xff000000),
+                      fontFamily: GoogleFonts.inter().fontFamily,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+
+                  TextInputField(
+                    _emailController,
+                    "Referal Code",
+                    TextInputType.number,
+                    null,
+                    Icons.email_outlined,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              _value = !_value;
+                            });
+                          },
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.black45),
+                                color: _value
+                                    ? Colors.grey.shade200
+                                    : Color(0xff000000)),
+                            child: Padding(
+                              padding: EdgeInsets.all(2.0),
+                              child: _value
+                                  ? Icon(
+                                      Icons.check_box_outline_blank,
+                                      size: 13.0,
+                                      color: Colors.transparent,
+                                    )
+                                  : Icon(
+                                      Icons.check,
+                                      size: 13.0,
+                                      color: Colors.white,
+                                    ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.03,
+                        ),
+                        Text(
+                          'I accept the terms and privacy policy',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Color(0xff000000),
+                            fontFamily: GoogleFonts.inter().fontFamily,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
 
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   // SizedBox(
@@ -212,7 +292,7 @@ class _SignUpState extends State<SignUp> {
                         height: MediaQuery.of(context).size.height * 0.07,
                         width: MediaQuery.of(context).size.width * 0.87,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Color(0xff000000),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             width: 1,
@@ -220,26 +300,15 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.1,
-                            ),
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfeGj-vD7Se4BulJfLUzLe5YqhQ9gftr1J3w&s',
-                              ),
-                              radius: 14,
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.07,
-                            ),
                             Text(
-                              'Sign In with Gmail',
+                              'Sign Up',
                               style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                              ),
-                            ),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -256,7 +325,6 @@ class _SignUpState extends State<SignUp> {
                       // )
                     ],
                   ),
-                 
 
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Row(
@@ -281,7 +349,6 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
       ),
-
     );
   }
 }

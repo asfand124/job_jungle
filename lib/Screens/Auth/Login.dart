@@ -234,34 +234,34 @@ class Login extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Remember password? ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontFamily: GoogleFonts.inter().fontFamily,
-                  ),
-                ),
-                // InkWell(
-                //   onTap: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => SignUpScreen()));
-                //   },
-                // child:
-                Text(
-                  'Sign up',
-                  style: TextStyle(
-                    color: Color(0xff000000),
-                    fontWeight: FontWeight.w600,
-                    fontFamily: GoogleFonts.inter().fontFamily,
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Text(
+            //       'Remember password? ',
+            //       style: TextStyle(
+            //         fontWeight: FontWeight.w400,
+            //         fontFamily: GoogleFonts.inter().fontFamily,
+            //       ),
+            //     ),
+            //     // InkWell(
+            //     //   onTap: () {
+            //     //     Navigator.push(
+            //     //         context,
+            //     //         MaterialPageRoute(
+            //     //             builder: (context) => SignUpScreen()));
+            //     //   },
+            //     // child:
+            //     Text(
+            //       'Sign up',
+            //       style: TextStyle(
+            //         color: Color(0xff000000),
+            //         fontWeight: FontWeight.w600,
+            //         fontFamily: GoogleFonts.inter().fontFamily,
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

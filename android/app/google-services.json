@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "49137141662",
+    "project_id": "job-jungle-rev2-7dfd0",
+    "storage_bucket": "job-jungle-rev2-7dfd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49137141662:android:f5dada3a406f7d8549f88f",
+        "android_client_info": {
+          "package_name": "com.example.job_jungle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW4RZ3584mLiw4FRGHY0TQppOccYd5UNE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

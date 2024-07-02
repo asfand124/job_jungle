@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +24,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Form(
@@ -49,7 +49,6 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-
                   Text(
                     'Create account',
                     style: TextStyle(
@@ -59,7 +58,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-
                   Text(
                     ' First Name',
                     style: TextStyle(
@@ -70,7 +68,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
                     _firstNameController,
                     "First Name",
@@ -95,9 +92,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
-                    _firstNameController,
+                    _lastNameController,
                     "Last Name",
                     TextInputType.emailAddress,
                     (value) {
@@ -110,7 +106,6 @@ class _SignUpState extends State<SignUp> {
                     Icons.person_outline,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
                   Text(
                     ' Email',
                     style: TextStyle(
@@ -121,7 +116,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
                     _emailController,
                     "Email",
@@ -139,7 +133,6 @@ class _SignUpState extends State<SignUp> {
                     },
                     Icons.email_outlined,
                   ),
-
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Text(
                     ' Password',
@@ -151,7 +144,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
                     _passwordController,
                     "Enter Password",
@@ -179,7 +171,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
                     _conformPassController,
                     "Confirm your Password",
@@ -197,7 +188,6 @@ class _SignUpState extends State<SignUp> {
                     Icons.lock,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
                   Text(
                     ' Referal Code',
                     style: TextStyle(
@@ -208,16 +198,14 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-
                   TextInputField(
-                    _emailController,
+                    _referalCodeController,
                     "Referal Code",
                     TextInputType.number,
                     null,
                     Icons.email_outlined,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
@@ -268,17 +256,6 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                  // SizedBox(
-                  //   width: MediaQuery.of(context).size.width * 0.90,
-                  //   height: MediaQuery.of(context).size.height * 0.07,
-                  //   child: squreButton(
-                  //     btnText: "Sign up",
-                  //     pressedMethod: signUpHandler,
-                  //   ),
-                  // ),
-
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                   Center(
                     child: InkWell(
@@ -315,7 +292,6 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -325,7 +301,6 @@ class _SignUpState extends State<SignUp> {
                       // )
                     ],
                   ),
-
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -341,8 +316,7 @@ class _SignUpState extends State<SignUp> {
                           child: Text(" Login Now", style: TextStyle())),
                     ],
                   ),
-
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                 ],
               ),
             ),

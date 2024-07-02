@@ -11,6 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: myTheme, home: SplashScreen());
+    return MaterialApp(theme: myTheme, debugShowCheckedModeBanner: false,home: SplashScreen());
   }
 }

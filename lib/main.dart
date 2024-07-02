@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_jungle/Const/Themedata.dart';
+import 'package:job_jungle/Screens/Common/SplashScreen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,13 +11,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-   theme: myTheme ,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!Huzaifa-Tawab'),
-        ),
-      ),
-    );
+    return MaterialApp(theme: myTheme, home: SplashScreen());
   }
 }

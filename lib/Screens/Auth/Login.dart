@@ -185,7 +185,7 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Remember password?',
+                  'Remember password',
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontFamily: GoogleFonts.inter().fontFamily,

@@ -11,7 +11,6 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
         body: Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
       child: SingleChildScrollView(
@@ -21,9 +20,14 @@ class Login extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon: Icon(Icons.arrow_back,size: 32,)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 32,
+                    )),
                 SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.2,
@@ -238,11 +242,7 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-<<<<<<< HEAD
-                  'Remember password?',
-=======
                   'Remember password? ',
->>>>>>> 281ed819e7c1bed0079b757e140f58b4c0c66d5f
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontFamily: GoogleFonts.inter().fontFamily,

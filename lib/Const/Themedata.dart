@@ -1,16 +1,26 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData myTheme = ThemeData(
   primarySwatch: Colors.blue,
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.purpleAccent,
-  ),
-  backgroundColor: Colors.white,
-  hintColor: Colors.green,
   textTheme: TextTheme(
-    headline6: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-    bodyText2: TextStyle(fontSize: 16.0),
+    displayLarge: TextStyle(
+      fontSize: 72,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    ),
+    titleLarge: GoogleFonts.oswald(
+      fontSize: 30,
+      fontStyle: FontStyle.italic,
+    ),
+    bodyMedium: GoogleFonts.merriweather(),
+    displaySmall: GoogleFonts.pacifico(),
+  ),
+  scaffoldBackgroundColor: Colors.white,
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: Colors.purple,
+    brightness: Brightness.dark,
   ),
 );

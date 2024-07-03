@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:job_jungle/Components/Textfields.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         body: Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
       child: SingleChildScrollView(
@@ -14,8 +19,11 @@ class Login extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                IconButton(onPressed: (){
+                  Navigator.pop(context);
+                }, icon: Icon(Icons.arrow_back,size: 32,)),
                 SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.2,
@@ -47,6 +55,26 @@ class Login extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            TextInputField(
+              _emailController,
+              "Email",
+              TextInputType.emailAddress,
+              (value) {
+                if (value!.isEmpty) {
+                  return "Email field cannot be empty";
+                } else if (!RegExp(
+                        "^[a-zA-Z0-9.a-zA-Z0-9.!#%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+.[a-zA-Z]")
+                    .hasMatch(value)) {
+                  return "Please enter a valid email";
+                } else {
+                  return null;
+                }
+              },
+              Icons.email_outlined,
+            ),
 
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
@@ -60,7 +88,25 @@ class Login extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            TextInputField(
+              _passwordController,
+              "Enter Password",
+              TextInputType.text,
+              (value) {
+                RegExp regex = RegExp(r'^.{6,}$');
+                if (value!.isEmpty) {
+                  return "Password cannot be empty";
+                }
+                if (!regex.hasMatch(value)) {
+                  return "Please enter a valid password (min. 6 characters)";
+                }
+                return null;
+              },
+              Icons.lock,
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
@@ -112,27 +158,30 @@ class Login extends StatelessWidget {
               ///,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
               ///......................................
               ////////////////////////////////////////////
-              child: Container(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  width: MediaQuery.of(context).size.width * 0.87,
-                  decoration: BoxDecoration(
-                    color: Color(0xff000000),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      width: 1,
-                      color: Color(0xff747474),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'login',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Container(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.87,
+                    decoration: BoxDecoration(
+                      color: Color(0xff000000),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        width: 1,
+                        color: Color(0xff747474),
                       ),
                     ),
-                  )),
+                    child: Center(
+                      child: Text(
+                        'login',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                        ),
+                      ),
+                    )),
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
@@ -142,39 +191,43 @@ class Login extends StatelessWidget {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Login()));
               },
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.07,
-                width: MediaQuery.of(context).size.width * 0.87,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    width: 1,
-                    color: Color(0xff747474),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.87,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      width: 1,
+                      color: Color(0xff747474),
+                    ),
                   ),
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.1,
-                    ),
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfeGj-vD7Se4BulJfLUzLe5YqhQ9gftr1J3w&s',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // SizedBox(
+                      //   width: MediaQuery.of(context).size.width * 0.1,
+                      // ),
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfeGj-vD7Se4BulJfLUzLe5YqhQ9gftr1J3w&s',
+                        ),
+                        radius: 14,
                       ),
-                      radius: 14,
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.07,
-                    ),
-                    Text(
-                      'Sign In with Gmail',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.07,
                       ),
-                    ),
-                  ],
+                      Text(
+                        'Sign In with Gmail',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -185,7 +238,11 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
+<<<<<<< HEAD
                   'Remember password?',
+=======
+                  'Remember password? ',
+>>>>>>> 281ed819e7c1bed0079b757e140f58b4c0c66d5f
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontFamily: GoogleFonts.inter().fontFamily,
@@ -200,7 +257,7 @@ class Login extends StatelessWidget {
                 //   },
                 // child:
                 Text(
-                  'sign up',
+                  'Sign up',
                   style: TextStyle(
                     color: Color(0xff000000),
                     fontWeight: FontWeight.w600,

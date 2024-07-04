@@ -7,14 +7,21 @@ ThemeData myTheme = ThemeData(
   primarySwatch: Colors.blue,
   textTheme: TextTheme(
     displayLarge: TextStyle(
-      fontSize: 72,
+      fontSize: 25,
       fontWeight: FontWeight.bold,
       fontFamily: GoogleFonts.poppins().fontFamily,
     ),
     titleLarge: GoogleFonts.oswald(
-      fontSize: 30,
+      fontSize: 15,
+      color: Colors.black,
       fontStyle: FontStyle.italic,
     ),
+    titleSmall: GoogleFonts.inter(
+      fontSize: 15,
+      color: Colors.white,
+    ),
+    titleMedium: GoogleFonts.inter(
+        fontSize: 15, color: Colors.black, fontStyle: FontStyle.normal),
     bodyMedium: GoogleFonts.merriweather(),
     displaySmall: GoogleFonts.pacifico(),
   ),

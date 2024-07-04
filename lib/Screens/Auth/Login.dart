@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_jungle/Components/Textfields.dart';
+import 'package:job_jungle/Screens/Common/Navigation_bar.dart';
+import 'package:job_jungle/Screens/User/User_Home.dart';
 
 class Login extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
@@ -39,26 +41,13 @@ class Login extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
             ),
-            Text(
-              'Hi, Welcome!',
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w800,
-                fontFamily: GoogleFonts.poppins().fontFamily,
-              ),
-            ),
+            Text('Hi, Welcome!',
+                style: Theme.of(context).textTheme.displayLarge),
+
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
             ),
-            Text(
-              ' Email',
-              style: TextStyle(
-                fontSize: 14,
-                color: Color(0xff000000),
-                fontFamily: GoogleFonts.inter().fontFamily,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text(' Email', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
@@ -83,15 +72,7 @@ class Login extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Text(
-              ' Password',
-              style: TextStyle(
-                fontSize: 14,
-                color: Color(0xff000000),
-                fontFamily: GoogleFonts.inter().fontFamily,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Text(' Password', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
             ),
@@ -125,15 +106,8 @@ class Login extends StatelessWidget {
                 //             builder: (context) => ForgetPassword()));
                 //   },
                 //child:
-                Text(
-                  "Forget Password? ",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: GoogleFonts.poppins().fontFamily,
-                    color: Color(0xff1E232C),
-                  ),
-                ),
+                Text("Forget Password? ",
+                    style: Theme.of(context).textTheme.titleLarge),
               ],
             ),
             SizedBox(
@@ -146,14 +120,18 @@ class Login extends StatelessWidget {
             ///
             InkWell(
               onTap: () {
-                Navigator.push(
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => User_Home(),
+                //   ),
+                // );
+                Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => Login(),
-                  ),
+                  MaterialPageRoute(builder: (context) => Navigation()),
                 );
               },
-              //  signInHandler,
+              //  signInHandler,s
 
               //.................................
               ///////////////////////////////////////
@@ -176,14 +154,8 @@ class Login extends StatelessWidget {
                       ),
                     ),
                     child: Center(
-                      child: Text(
-                        'login',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: GoogleFonts.poppins().fontFamily,
-                        ),
-                      ),
+                      child: Text('login',
+                          style: Theme.of(context).textTheme.titleSmall),
                     )),
               ),
             ),

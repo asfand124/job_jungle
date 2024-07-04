@@ -12,7 +12,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-   TextEditingController _userNameController = TextEditingController();
+  TextEditingController _userNameController = TextEditingController();
 
   TextEditingController _usertypeController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
@@ -21,7 +21,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body: SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -48,25 +48,12 @@ class _SignUpState extends State<SignUp> {
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
 
-                  Text(
-                    'Create account',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w800,
-                      fontFamily: GoogleFonts.poppins().fontFamily,
-                    ),
-                  ),
+                  Text('Create account',
+                      style: Theme.of(context).textTheme.displayLarge),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                 
-                  Text(
-                    ' Username',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+
+                  Text(' Username',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                   TextInputField(
@@ -84,15 +71,8 @@ class _SignUpState extends State<SignUp> {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.03),
 
-                  Text(
-                    ' Email',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Email',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                   TextInputField(
@@ -112,19 +92,10 @@ class _SignUpState extends State<SignUp> {
                     },
                     Icons.email_outlined,
                   ),
-                  
-                 
 
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Password',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Password',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
 
                   TextInputField(
@@ -144,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                     Icons.lock,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                 
+
                   // Row(
                   //   children: [
                   //     InkWell(
@@ -233,13 +204,8 @@ class _SignUpState extends State<SignUp> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.07,
                             ),
-                            Text(
-                              'Sign In with Gmail',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                              ),
-                            ),
+                            Text('Sign In with Gmail',
+                                style: Theme.of(context).textTheme.titleMedium),
                           ],
                         ),
                       ),
@@ -256,21 +222,23 @@ class _SignUpState extends State<SignUp> {
                       // )
                     ],
                   ),
-                 
 
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(" Already have an account?", style: TextStyle()),
+                      Text(" Already have an account?",
+                          style: Theme.of(context).textTheme.titleMedium),
                       InkWell(
-                          onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => LoginScreen()));
-                          },
-                          child: Text(" Login Now", style: TextStyle())),
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => LoginScreen()));
+                        },
+                        child: Text(" Login Now",
+                            style: Theme.of(context).textTheme.titleMedium),
+                      ),
                     ],
                   ),
 
@@ -281,7 +249,6 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
       ),
-
     );
   }
 }

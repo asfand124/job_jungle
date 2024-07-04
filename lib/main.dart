@@ -12,17 +12,19 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: myTheme, debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Column(
-          children: [
-            Text('data work  with me for to do work',
-                style: Theme.of(context).textTheme.titleLarge),
-                
-          ],
-        ),
-      ),
-      // SplashScreen(),
+      theme: myTheme,
+      debugShowCheckedModeBanner: false,
+      home:
+          // Scaffold(
+          //   body: Column(
+          //     children: [
+          //       Text('data work  with me for to do work',
+          //           style: Theme.of(context).textTheme.titleLarge),
+
+          //     ],
+          //   ),
+          // ),
+          SplashScreen(),
     );
   }
 }

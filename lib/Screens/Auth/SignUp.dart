@@ -73,6 +73,7 @@ class _SignUpState extends State<SignUp> {
 
     return Scaffold(
       body: SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Container(
@@ -321,15 +322,8 @@ class _SignUpState extends State<SignUp> {
                         )
                       : SizedBox(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Password',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Password',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _passwordController,
@@ -492,7 +486,8 @@ class _SignUpState extends State<SignUp> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(" Already have an account?", style: TextStyle()),
+                      Text(" Already have an account?",
+                          style: Theme.of(context).textTheme.titleMedium),
                       InkWell(
                           onTap: () {
                             Navigator.push(
@@ -514,3 +509,4 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+

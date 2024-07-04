@@ -46,22 +46,10 @@ class Direct extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, right: 10, top: 15),
                 child: Column(
                   children: [
-                    Text(
-                      'Ultimate Convenience',
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      'Everything You Need, All in One App!',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: GoogleFonts.inter().fontFamily,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    Text('Ultimate Convenience',
+                        style: Theme.of(context).textTheme.displayLarge),
+                    Text('Everything You Need, All in One App!',
+                        style: Theme.of(context).textTheme.titleMedium),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.03,
                     ),
@@ -72,15 +60,9 @@ class Direct extends StatelessWidget {
                           color: Color(0xff000000),
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
-                          child: Text(
-                        'Sign In with Email',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: GoogleFonts.poppins().fontFamily,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )),
+                        child: Text('Sign In with Email',
+                            style: Theme.of(context).textTheme.titleSmall),
+                      ),
                     ),
 
                     SizedBox(
@@ -90,9 +72,9 @@ class Direct extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CreateAccount()));
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CreateAccount()));
                       },
                       child: Container(
                           height: MediaQuery.of(context).size.height * 0.07,
@@ -106,14 +88,8 @@ class Direct extends StatelessWidget {
                             ),
                           ),
                           child: Center(
-                            child: Text(
-                              'Create account',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                              ),
-                            ),
+                            child: Text('Create account',
+                                style: Theme.of(context).textTheme.titleMedium),
                           )),
                     ),
 
@@ -204,13 +180,8 @@ class Direct extends StatelessWidget {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.03,
                             ),
-                            Text(
-                              'Sign In with Google',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                              ),
-                            )
+                            Text('Sign In with Google',
+                                style: Theme.of(context).textTheme.titleMedium),
                           ],
                         ),
                       ),

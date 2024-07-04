@@ -47,7 +47,7 @@ class Direct extends StatelessWidget {
                 child: Column(
                   children: [
                     Text('Ultimate Convenience',
-                        style: Theme.of(context).textTheme.displayLarge),
+                        style: Theme.of(context).textTheme.displayMedium),
                     Text('Everything You Need, All in One App!',
                         style: Theme.of(context).textTheme.titleMedium),
                     SizedBox(

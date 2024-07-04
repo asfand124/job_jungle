@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_jungle/Components/Textfields.dart';
 import 'package:job_jungle/Screens/Common/Navigation_bar.dart';
-import 'package:job_jungle/Screens/User/User_Home.dart';
+import 'package:job_jungle/Services/AuthServices.dart';
+import 'package:job_jungle/Services/FirestoreServices.dart';
 
+// ignore: must_be_immutable
 class Login extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -12,6 +14,23 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final AuthService _auth = AuthService();
+    // final FirestoreService _fs = FirestoreService();
+    // login user
+    // handleLogin() async {
+    //   final user = _auth.signInWithEmailAndPassword(
+    //       _emailController.text, _passwordController.text);
+
+    //   if (_auth.isUserLoggedIn()) {
+    //     print("Logged in");
+    //     await _fs.getData("Users", _auth.getUserID()).then((value) {
+    //       if (value != null) {
+    //         print(value['Name']);
+    //       }
+    //     });
+    //   }
+    // }
+
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
@@ -22,6 +41,14 @@ class Login extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 32,
+                    )),
                 IconButton(
                     onPressed: () {
                       Navigator.pop(context);
@@ -210,34 +237,34 @@ class Login extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Remember password? ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontFamily: GoogleFonts.inter().fontFamily,
-                  ),
-                ),
-                // InkWell(
-                //   onTap: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => SignUpScreen()));
-                //   },
-                // child:
-                Text(
-                  'Sign up',
-                  style: TextStyle(
-                    color: Color(0xff000000),
-                    fontWeight: FontWeight.w600,
-                    fontFamily: GoogleFonts.inter().fontFamily,
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Text(
+            //       'Remember password? ',
+            //       style: TextStyle(
+            //         fontWeight: FontWeight.w400,
+            //         fontFamily: GoogleFonts.inter().fontFamily,
+            //       ),
+            //     ),
+            //     // InkWell(
+            //     //   onTap: () {
+            //     //     Navigator.push(
+            //     //         context,
+            //     //         MaterialPageRoute(
+            //     //             builder: (context) => SignUpScreen()));
+            //     //   },
+            //     // child:
+            //     Text(
+            //       'Sign up',
+            //       style: TextStyle(
+            //         color: Color(0xff000000),
+            //         fontWeight: FontWeight.w600,
+            //         fontFamily: GoogleFonts.inter().fontFamily,
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
         ),
       ),

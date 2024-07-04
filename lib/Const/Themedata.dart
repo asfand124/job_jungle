@@ -20,6 +20,12 @@ ThemeData myTheme = ThemeData(
       fontSize: 15,
       color: Colors.white,
     ),
+    displayMedium: TextStyle(
+       fontSize: 25,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      color: Colors.black
+    ),
     titleMedium: GoogleFonts.inter(
         fontSize: 15, color: Colors.black, fontStyle: FontStyle.normal),
     bodyMedium: GoogleFonts.merriweather(),

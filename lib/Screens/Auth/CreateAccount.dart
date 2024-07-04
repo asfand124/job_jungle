@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -8,6 +10,12 @@ class CreateAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    handleButtonPress(userType) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SignUp(type: userType)));
+      print(userType);
+    }
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,8 +25,7 @@ class CreateAccount extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUp()));
+                  handleButtonPress("vendor");
                 },
                 child: Container(
                   height: 100,
@@ -39,8 +46,7 @@ class CreateAccount extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUp()));
+                  handleButtonPress("customer");
                 },
                 child: Container(
                   height: 100,
@@ -50,7 +56,7 @@ class CreateAccount extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15)),
                   child: Center(
                     child: Text(
-                      "User",
+                      "Customer",
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,

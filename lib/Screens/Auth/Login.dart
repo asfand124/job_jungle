@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_jungle/Components/Textfields.dart';
+import 'package:job_jungle/Services/AuthServices.dart';
+import 'package:job_jungle/Services/FirestoreServices.dart';
 
+// ignore: must_be_immutable
 class Login extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -10,8 +13,24 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthService _auth = AuthService();
+    final FirestoreService _fs = FirestoreService();
+    // login user
+    handleLogin() async {
+      final user = _auth.signInWithEmailAndPassword(
+          _emailController.text, _passwordController.text);
+
+      if (_auth.isUserLoggedIn()) {
+        print("Logged in");
+        await _fs.getData("Users", _auth.getUserID()).then((value) {
+          if (value != null) {
+            print(value['Name']);
+          }
+        });
+      }
+    }
+
     return Scaffold(
-      
         body: Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 25),
       child: SingleChildScrollView(
@@ -21,9 +40,14 @@ class Login extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon: Icon(Icons.arrow_back,size: 32,)),
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 32,
+                    )),
                 SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                     width: MediaQuery.of(context).size.width * 0.2,

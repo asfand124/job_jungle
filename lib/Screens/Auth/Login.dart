@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_jungle/Components/Textfields.dart';
+import 'package:job_jungle/Screens/Common/Navigation_bar.dart';
 import 'package:job_jungle/Services/AuthServices.dart';
 import 'package:job_jungle/Services/FirestoreServices.dart';
 
@@ -13,22 +14,22 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthService _auth = AuthService();
-    final FirestoreService _fs = FirestoreService();
+    // final AuthService _auth = AuthService();
+    // final FirestoreService _fs = FirestoreService();
     // login user
-    handleLogin() async {
-      final user = _auth.signInWithEmailAndPassword(
-          _emailController.text, _passwordController.text);
+    // handleLogin() async {
+    //   final user = _auth.signInWithEmailAndPassword(
+    //       _emailController.text, _passwordController.text);
 
-      if (_auth.isUserLoggedIn()) {
-        print("Logged in");
-        await _fs.getData("Users", _auth.getUserID()).then((value) {
-          if (value != null) {
-            print(value['Name']);
-          }
-        });
-      }
-    }
+    //   if (_auth.isUserLoggedIn()) {
+    //     print("Logged in");
+    //     await _fs.getData("Users", _auth.getUserID()).then((value) {
+    //       if (value != null) {
+    //         print(value['Name']);
+    //       }
+    //     });
+    //   }
+    // }
 
     return Scaffold(
         body: Padding(

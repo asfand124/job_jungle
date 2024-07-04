@@ -50,29 +50,29 @@ class _SignUpState extends State<SignUp> {
   };
   @override
   Widget build(BuildContext context) {
-    final AuthService _auth = AuthService();
-    final FirestoreService _fs = FirestoreService();
-    register() async {
-      await _auth
-          .registerWithEmailAndPassword(
-              _emailController.text, _passwordController.text)
-          .then((res) {
-        print(res);
-        _fs.setData("user", res!, {"name": _firstNameController.text});
-      });
-    }
+    // final AuthService _auth = AuthService();
+    // final FirestoreService _fs = FirestoreService();
+    // register() async {
+    //   await _auth
+    //       .registerWithEmailAndPassword(
+    //           _emailController.text, _passwordController.text)
+    //       .then((res) {
+    //     print(res);
+    //     _fs.setData("user", res!, {"name": _firstNameController.text});
+    //   });
+    // }
 
-    handlePasswords() {
-      if (_confirmPassController.text == _passwordController.text) {
-        register();
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('data')));
-      }
-    }
+    // handlePasswords() {
+    //   if (_confirmPassController.text == _passwordController.text) {
+    //     register();
+    //   } else {
+    //     ScaffoldMessenger.of(context)
+    //         .showSnackBar(SnackBar(content: Text('data')));
+    //   }
+    // }
 
     return Scaffold(
-      body: SafeArea(
+      
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),

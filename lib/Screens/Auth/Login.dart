@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_jungle/Components/Textfields.dart';
 import 'package:job_jungle/Screens/Common/Navigation_bar.dart';
+import 'package:job_jungle/Screens/User/User_Home.dart';
 import 'package:job_jungle/Services/AuthServices.dart';
 import 'package:job_jungle/Services/FirestoreServices.dart';
 

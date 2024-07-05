@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:job_jungle/Components/Textfields.dart';
 import 'package:job_jungle/Screens/Common/Navigation_bar.dart';
 import 'package:job_jungle/Services/AuthServices.dart';
@@ -153,9 +154,9 @@ class Login extends StatelessWidget {
                 //     builder: (context) => User_Home(),
                 //   ),
                 // );
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Navigation()),
+                  MaterialPageRoute(builder: (context) => navigationbar()),
                 );
               },
               //  signInHandler,s

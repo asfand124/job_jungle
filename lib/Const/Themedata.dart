@@ -11,6 +11,11 @@ ThemeData myTheme = ThemeData(
       fontWeight: FontWeight.bold,
       fontFamily: GoogleFonts.poppins().fontFamily,
     ),
+    displayMedium: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        color: Colors.black),
     titleLarge: GoogleFonts.oswald(
       fontSize: 15,
       color: Colors.black,
@@ -19,12 +24,6 @@ ThemeData myTheme = ThemeData(
     titleSmall: GoogleFonts.inter(
       fontSize: 15,
       color: Colors.white,
-    ),
-    displayMedium: TextStyle(
-       fontSize: 25,
-      fontWeight: FontWeight.bold,
-      fontFamily: GoogleFonts.poppins().fontFamily,
-      color: Colors.black
     ),
     titleMedium: GoogleFonts.inter(
         fontSize: 15, color: Colors.black, fontStyle: FontStyle.normal),

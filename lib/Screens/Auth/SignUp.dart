@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:job_jungle/Components/DropDownMenu.dart';
 import 'package:job_jungle/Components/Textfields.dart';
 import 'package:job_jungle/Screens/Auth/Login.dart';
-import 'package:job_jungle/Services/AuthServices.dart';
-import 'package:job_jungle/Services/FirestoreServices.dart';
 
 class SignUp extends StatefulWidget {
   final String type;
@@ -48,38 +44,16 @@ class _SignUpState extends State<SignUp> {
       "Mutton",
     ]
   };
+
   @override
   Widget build(BuildContext context) {
-    // final AuthService _auth = AuthService();
-    // final FirestoreService _fs = FirestoreService();
-    // register() async {
-    //   await _auth
-    //       .registerWithEmailAndPassword(
-    //           _emailController.text, _passwordController.text)
-    //       .then((res) {
-    //     print(res);
-    //     _fs.setData("user", res!, {"name": _firstNameController.text});
-    //   });
-    // }
-
-    // handlePasswords() {
-    //   if (_confirmPassController.text == _passwordController.text) {
-    //     register();
-    //   } else {
-    //     ScaffoldMessenger.of(context)
-    //         .showSnackBar(SnackBar(content: Text('data')));
-    //   }
-    // }
-
     return Scaffold(
-      
       body: SafeArea(
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Form(
-              // key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -109,15 +83,8 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                  Text(
-                    ' First Name',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' First Name',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _firstNameController,
@@ -133,15 +100,8 @@ class _SignUpState extends State<SignUp> {
                     Icons.person_outline,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Last Name',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Last Name',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _lastNameController,
@@ -157,15 +117,8 @@ class _SignUpState extends State<SignUp> {
                     Icons.person_outline,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Email',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Email',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _emailController,
@@ -175,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                       if (value!.isEmpty) {
                         return "Email field cannot be empty";
                       } else if (!RegExp(
-                              "^[a-zA-Z0-9.a-zA-Z0-9.!#%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+.[a-zA-Z]")
+                              "^[a-zA-Z0-9.a-zA-Z0-9.!#%&'*+-/=?^_{|}~]+@[a-zA-Z0-9]+.[a-zA-Z]")
                           .hasMatch(value)) {
                         return "Please enter a valid email";
                       } else {
@@ -189,15 +142,8 @@ class _SignUpState extends State<SignUp> {
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              ' Select your Type',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Color(0xff000000),
-                                fontFamily: GoogleFonts.inter().fontFamily,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            Text(' Select your Type',
+                                style: Theme.of(context).textTheme.titleMedium),
                             SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.01),
@@ -214,13 +160,10 @@ class _SignUpState extends State<SignUp> {
                                   horizontal: 6,
                                 ),
                                 child: DropdownButton<String>(
-                                  isExpanded:
-                                      true, // Makes the dropdown take the full width of the container
+                                  isExpanded: true,
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 5),
-                                  value: _selectedVendorType.isEmpty
-                                      ? null
-                                      : _selectedVendorType,
+                                  value: _selectedVendorType,
                                   underline: SizedBox(),
                                   style: TextStyle(
                                     fontSize: 15.0,
@@ -230,6 +173,7 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                   onChanged: (String? newValue) {
                                     setState(() {
+                                      _selectedSpecialization = "";
                                       _selectedVendorType = newValue!;
                                     });
                                   },
@@ -246,32 +190,14 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         )
-                      //  DropDownmenu(
-                      // _vendorType,
-                      //  (String? newValue) {
-                      //       setState(() {
-                      //         _selectedVendorType = newValue!;
-                      //       });
-                      //     },
-                      // _selectedVendorType,
-                      //      'Type',
-                      //     context
-                      //   )
                       : SizedBox(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                   widget.type == "vendor"
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              ' Select your Specialization',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Color(0xff000000),
-                                fontFamily: GoogleFonts.inter().fontFamily,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            Text(' Select your Specialization',
+                                style: Theme.of(context).textTheme.titleMedium),
                             SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.01),
@@ -304,6 +230,7 @@ class _SignUpState extends State<SignUp> {
                                   ),
                                   onChanged: (String? newValue) {
                                     setState(() {
+                                    
                                       _selectedSpecialization = newValue!;
                                     });
                                   },
@@ -342,15 +269,8 @@ class _SignUpState extends State<SignUp> {
                     Icons.lock,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Confirm Password',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Confirm Password',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _confirmPassController,
@@ -369,15 +289,8 @@ class _SignUpState extends State<SignUp> {
                     Icons.lock,
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                  Text(
-                    ' Referal Code',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                      fontFamily: GoogleFonts.inter().fontFamily,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text(' Referal Code',
+                      style: Theme.of(context).textTheme.titleMedium),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                   TextInputField(
                     _referalCodeController,
@@ -425,15 +338,8 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.03,
                         ),
-                        Text(
-                          'I accept the terms and privacy policy',
-                          style: TextStyle(
-                            fontSize: 13,
-                            color: Color(0xff000000),
-                            fontFamily: GoogleFonts.inter().fontFamily,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                        Text('I accept the terms and privacy policy',
+                            style: Theme.of(context).textTheme.titleMedium),
                       ],
                     ),
                   ),
@@ -460,13 +366,8 @@ class _SignUpState extends State<SignUp> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500),
-                            )
+                            Text('Sign Up',
+                                style: Theme.of(context).textTheme.titleSmall),
                           ],
                         ),
                       ),
@@ -489,14 +390,13 @@ class _SignUpState extends State<SignUp> {
                       Text(" Already have an account?",
                           style: Theme.of(context).textTheme.titleMedium),
                       InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Login()));
-                          },
-                          child: Text(" Login Now",
-                              style: TextStyle(fontWeight: FontWeight.bold))),
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
+                        child: Text(" Login Now",
+                            style: Theme.of(context).textTheme.titleLarge),
+                      ),
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.08),
@@ -509,4 +409,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
